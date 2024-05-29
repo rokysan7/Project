@@ -2,9 +2,9 @@ import streamlit as st
 import openai
 import os
 from datetime import datetime
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 # API 키 설정
 # openai.api_key = os.getenv('OPENAI_API_KEY')
