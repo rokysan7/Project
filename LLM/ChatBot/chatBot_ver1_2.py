@@ -7,7 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # API 키 설정
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+
+openai.api_key = st.secrets['general']['openai_api_key']
 
 # Log 파일 path
 LOG_FILE_PATH = 'chat_logs/'
