@@ -80,7 +80,7 @@ Question:
 # Streamlit Setting
 st.set_page_config(page_title="메칸더 B", page_icon="😃")
 st.title("심리치료 AI")
-st.info("Test alpha ver 1.2")
+st.info("Test alpha ver 1.3")
 
 # message 초기화로 시작
 if "messages" not in st.session_state:
