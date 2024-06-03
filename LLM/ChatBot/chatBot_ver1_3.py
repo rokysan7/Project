@@ -105,6 +105,14 @@ with st.sidebar:
             del st.session_state["store"][session_id]
         st.rerun()
 
+    # 대화 로그 삭제 버튼 추가 
+    delete_log_btn = st.button("대화 로그 삭제하기")
+    if delete_log_btn:
+        log_file, _ = manage_log_file(session_id)
+        if os.path.exists(log_file):
+            os.remove(log_file)
+            st.success(f"{session_id} 세션의 대화 로그가 삭제되었습니다.")
+
 # 메시지 출력 함수
 def print_messages():
     for message in st.session_state["messages"]:
@@ -123,7 +131,6 @@ if user_input := st.chat_input("메시지를 입력해주세요."):
         history = get_session_history(session_id)
 
         # PROMPT TEMPLATE 적용
-        # 수정된 부분: 시스템 메시지 추가
         prompt = [{"role": "system", "content": PROMPT_TEMPLATE.format(question=user_input)}]
 
         # 수정된 부분: 이전 대화 기록 추가
@@ -144,3 +151,9 @@ if user_input := st.chat_input("메시지를 입력해주세요."):
     # conversation 로그파일에 저장
     log_file, _ = manage_log_file(session_id)
     save_conversation(log_file, st.session_state["messages"])
+
+'''
+ver 1.3 patch note
+1. 이전의 대화를 읽어들여 정상 대화가 가능하도록 수정
+2. 대화 로그 시스템에서 삭제하는 코드 추가
+'''
