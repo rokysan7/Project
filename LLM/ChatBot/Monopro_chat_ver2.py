@@ -66,7 +66,7 @@ def load_conversation(session_id: str):
     return messages
 
 # # 견적서 
-df = pd.read_excel('Project/LLM/ChatBot/quote.xlsx')
+df = pd.read_excel('LLM/ChatBot/quote.xlsx')
 
 # 데이터를 텍스트로 변환
 # quote_text = ""
