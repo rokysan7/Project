@@ -1,6 +1,5 @@
 streamlit
 openai
-re
 pandas
 google.auth.transport.requests
 google.oauth2.credentials
